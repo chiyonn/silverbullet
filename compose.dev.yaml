@@ -4,7 +4,7 @@ services:
     container_name: silverbullet
     restart: unless-stopped
     volumes:
-      - /mnt/shared/Documents/silverbullet:/space
+      - ./space:/space
     ports:
       - "3030:3000"
     environment:

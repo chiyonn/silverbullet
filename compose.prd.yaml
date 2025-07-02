@@ -1,0 +1,27 @@
+services:
+  silverbullet:
+    image: zefhemel/silverbullet:v2
+    container_name: silverbullet
+    restart: unless-stopped
+    volumes:
+      - /mnt/silverbullet:/space
+    ports:
+      - "3030:3000"
+    environment:
+      - SB_USERNAME=chiyonn
+      - SB_PASSWORD=$$HOME5519s
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command:
+      - tunnel
+      - --no-autoupdate
+      - run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+
+networks:
+  default:
+    driver: bridge
+

@@ -1,0 +1,12 @@
+services:
+  silverbullet:
+    image: zefhemel/silverbullet
+    container_name: silverbullet
+    restart: unless-stopped
+    volumes:
+      - /mnt/shared/Documents/silverbullet:/space
+    ports:
+      - "3030:3000"
+    environment:
+      - SB_USERNAME=chiyonn
+      - SB_PASSWORD=$$HOME5519s
